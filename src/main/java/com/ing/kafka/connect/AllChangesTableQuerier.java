@@ -59,7 +59,7 @@ public class AllChangesTableQuerier extends TableQuerier {
 		ResultSet rs;
 		try {
 			cStmt = db.prepareCall("{ call sys.sp_cdc_get_captured_columns(?) }");
-			cStmt.setString(1, "dbo_product_CDC");
+			cStmt.setString(1, this.name);
 			rs = cStmt.executeQuery();
 
 			while (rs.next()) {
